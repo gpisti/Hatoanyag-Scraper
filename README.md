@@ -46,12 +46,21 @@ Győződj meg róla, hogy a következők telepítve vannak a rendszereden:
 Selenium telepítése pip-pel:
 ```bash
 pip install selenium
-
+```
 ## Beállítás
 
 1. **Klónozd a repót vagy töltsd le a projekt fájljait.**
 
 2. **Győződj meg róla, hogy a Brave böngésző a következő útvonalon van telepítve:**
 
-   ```bash
+   
    C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe
+
+3. **Töltsd le a megfelelő ChromeDriver verziót** [innen](https://sites.google.com/a/chromium.org/chromedriver/downloads) **és helyezd el egy általad választott mappába. Módosítsd az útvonalat a** `browser_setup.py` **fájlban:**
+
+   ```python
+   chrome_driver_path = "D:\\Prog\\Chromium\\chromedriver-win64\\chromedriver.exe"
+
+4. **Állítsd be a PDF-ek letöltési könyvtárát a `browser_setup.py` fájlban:**
+ ```python
+   download_directory = "D:\\Prog\\Python\\Erik\\Hatóanyagok"```
