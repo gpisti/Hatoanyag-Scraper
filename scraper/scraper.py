@@ -3,7 +3,7 @@ from .page_interactions import (
     select_active_ingredient,
     click_search_button,
     clear_filters,
-    get_number_of_results
+    get_number_of_results,
 )
 from .browser_setup import start_browser, stop_browser
 from selenium.webdriver.common.by import By
@@ -13,26 +13,52 @@ from .utils import scroll_to_element, wait_for_downloads
 import time
 import os
 
+
+DOWNLOAD_DICTIONARY = "D:\\Prog\\Python\\Erik\\Hatóanyagok"
+
+
+def get_number_of_rows(driver):
+    try:
+        result_text = (
+            WebDriverWait(driver, 20)
+            .until(
+                EC.visibility_of_element_located(
+                    (By.ID, "ContentPlaceHolder1_talalatokDiv")
+                )
+            )
+            .text
+        )
+
+        num_rows = int("".join(filter(str.isdigit, result_text)))
+
+        print(f"Találatok száma: {num_rows}")
+        return num_rows
+
+    except Exception as e:
+        print(f"Hiba a találatok számának lekérdezésekor: {str(e)}")
+        return 0
+
+
 def process_search_results(driver):
     try:
-        num_results = get_number_of_results(driver)
-        if num_results == 0:
+        num_rows = get_number_of_rows(driver)
+        if num_rows == 0:
             print("Nincs találat.")
             return
 
-        table = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located(
-                (By.ID, "ContentPlaceHolder1_NovszerGridView")
-            )
-        )
-        scroll_to_element(driver, table)
-        rows = table.find_elements(By.XPATH, "//tr/td[1]/a")
+        for i in range(num_rows):
+            row_selector = f"Select${i}"
+            row_link_xpath = f'//a[contains(@href, "{row_selector}")]'
 
-        for i, row in enumerate(rows):
-            scroll_to_element(driver, row)
+            row_link = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, row_link_xpath))
+            )
+
+            scroll_to_element(driver, row_link)
             print(f"{i + 1}. sor feldolgozása...")
-            row.click()
+            row_link.click()
             time.sleep(3)
+
             download_pdfs(driver)
 
             close_button = WebDriverWait(driver, 20).until(
@@ -45,7 +71,6 @@ def process_search_results(driver):
             )
             close_button.click()
             print("PDF információs ablak bezárva.")
-
             WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located(
                     (By.ID, "ContentPlaceHolder1_NovszerGridView")
@@ -62,7 +87,7 @@ def download_pdfs(driver):
             By.XPATH,
             "//a[contains(@id, 'ContentPlaceHolder1_InfoNovszerControl_HyperLink_')]",
         )
-        downloaded_files = set(os.listdir("D:\\Prog\\Python\\Erik\\Hatóanyagok"))
+        downloaded_files = set(os.listdir(DOWNLOAD_DICTIONARY))
 
         for i, link in enumerate(pdf_links):
             pdf_url = link.get_attribute("href")
@@ -74,7 +99,7 @@ def download_pdfs(driver):
 
             print(f"PDF {i + 1} letöltve: {pdf_url}")
             link.click()
-            wait_for_downloads("D:\\Prog\\Python\\Erik\\Hatóanyagok")
+            wait_for_downloads(DOWNLOAD_DICTIONARY)
 
     except Exception as e:
         print(f"Hiba a PDF-ek letöltésekor: {str(e)}")
