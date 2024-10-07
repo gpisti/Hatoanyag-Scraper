@@ -62,5 +62,12 @@ pip install selenium
    chrome_driver_path = "D:\\Prog\\Chromium\\chromedriver-win64\\chromedriver.exe"
 
 4. **Állítsd be a PDF-ek letöltési könyvtárát a `browser_setup.py` fájlban:**
- ```python
+    ```python
    download_directory = "D:\\Prog\\Python\\Erik\\Hatóanyagok"```
+   ```
+5. Telepítsd a Python függőségeket a projekt gyökérkönyvtárában található `requirements.txt` fájl alapján:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
