@@ -1,6 +1,6 @@
 # Web Scraper PDF-letöltéshez
 
-Ez a projekt egy Python és Selenium alapú webes adatgyűjtőt tartalmaz, amely automatikusan navigál egy weboldalra, kiválasztja az aktív hatóanyagokat a legördülő menüből, letölti a kapcsolódó PDF-eket, és azokat helyileg tárolja. A projekt moduláris felépítésű, a különböző funkciók külön fájlokba vannak szervezve az átláthatóság és karbantarthatóság érdekében.
+Ez a projekt egy Python és Selenium alapú webes adatgyűjtőt tartalmaz, amely automatikusan navigál [egy weboldalra](https://novenyvedoszer.nebih.gov.hu/engedelykereso/kereso), kiválasztja az aktív hatóanyagokat a legördülő menüből, letölti a kapcsolódó PDF-eket, és azokat helyileg tárolja. A projekt moduláris felépítésű, a különböző funkciók külön fájlokba vannak szervezve az átláthatóság és karbantarthatóság érdekében.
 
 ## Projekt Felépítése
 
