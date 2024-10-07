@@ -3,9 +3,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import time
 
-brave_path = "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
-chrome_driver_path = "D:\\Prog\\Chromium\\chromedriver-win64\\chromedriver.exe"
-download_directory = "D:\\Prog\\Python\\Erik\\Hatóanyagok"
+brave_path = "ADD MEG A BRAVE BÖNGÉSZŐ ELÉRÉSI ÚTVONALÁT"
+chrome_driver_path = "ADD MEG A CHROME DRIVER ELÉRÉSI ÚTVONALÁT"
+download_directory = "ADD MEG HOVA SZERETNÉD LETÖLTENI A PDF DOKUMENTUMOKAT"
 
 def get_chrome_options():
     chrome_options = Options()
