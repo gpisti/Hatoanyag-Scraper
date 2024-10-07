@@ -13,7 +13,6 @@ from .utils import scroll_to_element, wait_for_downloads
 import time
 import os
 
-# Process the search results
 def process_search_results(driver):
     try:
         num_results = get_number_of_results(driver)
@@ -57,7 +56,6 @@ def process_search_results(driver):
         print(f"Hiba az eredmény táblázat kezelésekor: {str(e)}")
 
 
-# Download PDFs
 def download_pdfs(driver):
     try:
         pdf_links = driver.find_elements(
