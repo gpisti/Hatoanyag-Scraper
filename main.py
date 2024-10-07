@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     try:
         open_website(driver)
-        for index in range(10):
+        for index in range(630):
             select_active_ingredient(driver, index)
             click_search_button(driver)
             process_search_results(driver)
