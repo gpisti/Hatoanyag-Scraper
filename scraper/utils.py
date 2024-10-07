@@ -1,8 +1,10 @@
 import time
 import os
 
+
 def scroll_to_element(driver, element):
     driver.execute_script("arguments[0].scrollIntoView();", element)
+
 
 def wait_for_downloads(download_path, timeout=60):
     seconds = 0
