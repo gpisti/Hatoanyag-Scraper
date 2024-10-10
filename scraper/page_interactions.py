@@ -67,7 +67,7 @@ def select_active_ingredient(driver, index, max_retries=3):
         except Exception as e:
             print(f"Hiba a hatóanyag kiválasztásakor (Attempt {attempt + 1}): {str(e)}")
             if attempt == max_retries - 1:
-                print("Max retries reached. Skipping ingredient selection.")
+                print("Elfogyott a próbálkozási lehetőség. Hatóanyag átugrása.")
                 return
 
         time.sleep(3)
