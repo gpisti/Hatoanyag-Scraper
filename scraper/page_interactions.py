@@ -129,5 +129,5 @@ def clear_filters(driver, max_retries=3):
         except Exception as e:
             print(f"Hiba a szűrők törlésekor (Attempt {attempt + 1}): {str(e)}")
             if attempt == max_retries - 1:
-                print("Max retries reached. Skipping filter clearing.")
+                print("Elfogyott a probálkozási lehetőség. Szűrők törlése.")
                 return
