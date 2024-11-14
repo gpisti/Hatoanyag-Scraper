@@ -72,7 +72,7 @@ pip install selenium
 
 4. **Állítsd be a PDF-ek letöltési könyvtárát a `browser_setup.py` fájlban:**
     ```python
-   download_directory = "D:\\Prog\\Python\\Erik\\Hatóanyagok"```
+   download_directory = "Elérési útvonal, a letöltött fájloknak"```
    ```
 5. Telepítsd a Python függőségeket a projekt gyökérkönyvtárában található `requirements.txt` fájl alapján:
 
