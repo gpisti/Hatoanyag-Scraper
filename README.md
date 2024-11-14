@@ -4,8 +4,17 @@ Ez a projekt egy Python és Selenium alapú webes adatgyűjtőt tartalmaz, amely
 
 ## Projekt Felépítése
 
-/scraper_project/ │ ├── scraper/ │ ├── init.py # A scraper mappa csomaggá alakítása │ ├── browser_setup.py # A böngésző beállításainak és lezárásának kezelése │ ├── page_interactions.py # A weboldallal való interakciók kezelése (kiválasztás, kattintás stb.) │ ├── utils.py # Segédfunkciókat tartalmaz, pl. görgetés és letöltések figyelése │ └── scraper.py # A fő scraping logika (találatok kezelése, PDF letöltése) │ └── main.py # A scraper futtatásának belépési pontja
+```
+scraper_project/
+├── scraper/
+│   ├── __init__.py              # Converts the scraper directory into a package
+│   ├── browser_setup.py         # Manages browser setup and teardown
+│   ├── page_interactions.py     # Handles interactions with the webpage (selection, clicks, etc.)
+│   ├── utils.py                 # Contains helper functions, e.g., scrolling and monitoring downloads
+│   ├── scraper.py               # Main scraping logic (handling results, downloading PDFs)
+└──   └── main.py                # Entry point to run the scraper
 
+```
 ### Fájlok áttekintése
 
 1. **`browser_setup.py`**  
